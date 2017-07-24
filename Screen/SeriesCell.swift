@@ -16,6 +16,7 @@ class SeriesCell: UITableViewCell {
     @IBOutlet weak var seriesName: UILabel!
     @IBOutlet weak var seriesRating: UILabel!
     @IBOutlet weak var seriesGenres: UILabel!
+    @IBOutlet weak var numberOfSeasons: UILabel!
     
     // Configures the Series Cell
     func configureCell(_ series: Series) {
@@ -31,6 +32,11 @@ class SeriesCell: UITableViewCell {
         
         Alamofire.request(SERIES_DETAIL_URL).responseJSON { response in
             if let seriesDetail = response.result.value as? [String:Any] {
+                
+                if let seasons = seriesDetail["seasons"] as? [[String:Any]] {
+                    self.numberOfSeasons.text = "\(seasons.count) Seasons"
+                }
+                
                 if let seriesGenres = seriesDetail["genres"] as? [[String:Any]] {
                     for genre in seriesGenres {
                         self.seriesGenres.text = (genre["name"] as! String)

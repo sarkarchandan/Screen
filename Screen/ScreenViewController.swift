@@ -69,6 +69,7 @@ NSFetchedResultsControllerDelegate {
             try? Series.persistSeriesDataWithCheck(data: seriesData, in: context)
             try? context.save()
         }
+        self.seriesTableViewOutlet.reloadData()
         printDatabaseStatistic()
     }
     
