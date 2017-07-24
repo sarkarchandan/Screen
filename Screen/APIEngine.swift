@@ -22,7 +22,7 @@ let BASE_URL_BACKDROP = "http://image.tmdb.org/t/p/w1280"
 let BASE_URL_TV_GENRES = "https://api.themoviedb.org/3/genre/tv/list?api_key="
 
 //Your API Key goes here//
-let API_KEY = "API KEY Here"
+let API_KEY = "API Key Here"
 
 //Custom closure that will denote the completion of the download
 typealias DownloadComplete = () -> ()

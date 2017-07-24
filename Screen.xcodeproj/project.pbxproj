@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		175891FD1F263AB600A42D61 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175891FC1F263AB600A42D61 /* DetailViewController.swift */; };
+		175891FF1F26434800A42D61 /* GradientImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175891FE1F26434800A42D61 /* GradientImageView.swift */; };
+		176662CF1F26005C007C9D9E /* APIEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176662CE1F26005C007C9D9E /* APIEngine.swift */; };
 		17805C641F253B8A0066E73A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17805C631F253B8A0066E73A /* AppDelegate.swift */; };
 		17805C661F253B8A0066E73A /* ScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17805C651F253B8A0066E73A /* ScreenViewController.swift */; };
 		17805C691F253B8A0066E73A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17805C671F253B8A0066E73A /* Main.storyboard */; };
@@ -15,7 +18,6 @@
 		17805C711F253B8A0066E73A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17805C6F1F253B8A0066E73A /* LaunchScreen.storyboard */; };
 		17805C7C1F253B8B0066E73A /* ScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17805C7B1F253B8B0066E73A /* ScreenTests.swift */; };
 		17805C8B1F253CA80066E73A /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17805C8A1F253CA80066E73A /* MaterialView.swift */; };
-		17805C8E1F253D110066E73A /* APIEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17805C8D1F253D110066E73A /* APIEngine.swift */; };
 		17805C901F253F6B0066E73A /* Series.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17805C8F1F253F6B0066E73A /* Series.swift */; };
 		17805C921F253F7E0066E73A /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17805C911F253F7E0066E73A /* Genre.swift */; };
 		17805C941F255F950066E73A /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17805C931F255F950066E73A /* RoundButton.swift */; };
@@ -38,6 +40,9 @@
 /* Begin PBXFileReference section */
 		05A686BF0961C248C6669C38 /* Pods-Screen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Screen.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Screen/Pods-Screen.debug.xcconfig"; sourceTree = "<group>"; };
 		099AA8DE71EA60E86A048832 /* Pods_ScreenTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScreenTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		175891FC1F263AB600A42D61 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		175891FE1F26434800A42D61 /* GradientImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientImageView.swift; sourceTree = "<group>"; };
+		176662CE1F26005C007C9D9E /* APIEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIEngine.swift; sourceTree = "<group>"; };
 		17805C601F253B8A0066E73A /* Screen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Screen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17805C631F253B8A0066E73A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17805C651F253B8A0066E73A /* ScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenViewController.swift; sourceTree = "<group>"; };
@@ -50,7 +55,6 @@
 		17805C7B1F253B8B0066E73A /* ScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTests.swift; sourceTree = "<group>"; };
 		17805C7D1F253B8B0066E73A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17805C8A1F253CA80066E73A /* MaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
-		17805C8D1F253D110066E73A /* APIEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIEngine.swift; sourceTree = "<group>"; };
 		17805C8F1F253F6B0066E73A /* Series.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Series.swift; sourceTree = "<group>"; };
 		17805C911F253F7E0066E73A /* Genre.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		17805C931F255F950066E73A /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
@@ -130,6 +134,7 @@
 			children = (
 				17805C631F253B8A0066E73A /* AppDelegate.swift */,
 				17805C651F253B8A0066E73A /* ScreenViewController.swift */,
+				175891FC1F263AB600A42D61 /* DetailViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -143,6 +148,7 @@
 				17805C931F255F950066E73A /* RoundButton.swift */,
 				17805C951F2565F40066E73A /* SeriesCell.swift */,
 				17805C971F2578EB0066E73A /* RoundCornerImageView.swift */,
+				175891FE1F26434800A42D61 /* GradientImageView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -167,7 +173,7 @@
 		17805C8C1F253D040066E73A /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				17805C8D1F253D110066E73A /* APIEngine.swift */,
+				176662CE1F26005C007C9D9E /* APIEngine.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -394,11 +400,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				175891FD1F263AB600A42D61 /* DetailViewController.swift in Sources */,
 				17805C941F255F950066E73A /* RoundButton.swift in Sources */,
+				175891FF1F26434800A42D61 /* GradientImageView.swift in Sources */,
 				17805C901F253F6B0066E73A /* Series.swift in Sources */,
+				176662CF1F26005C007C9D9E /* APIEngine.swift in Sources */,
 				17805C661F253B8A0066E73A /* ScreenViewController.swift in Sources */,
 				17805C6C1F253B8A0066E73A /* Screen.xcdatamodeld in Sources */,
-				17805C8E1F253D110066E73A /* APIEngine.swift in Sources */,
 				17805C961F2565F40066E73A /* SeriesCell.swift in Sources */,
 				17805C641F253B8A0066E73A /* AppDelegate.swift in Sources */,
 				17805C8B1F253CA80066E73A /* MaterialView.swift in Sources */,

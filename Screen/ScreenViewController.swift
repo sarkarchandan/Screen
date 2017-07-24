@@ -37,6 +37,10 @@ NSFetchedResultsControllerDelegate {
         self.attemptFetchSeriesData()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        self.seriesTableViewOutlet.reloadData()
+    }
+    
     // Makes the NavigationBar Transparent
     func makeNavigationBarTransparent() {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
@@ -139,13 +143,29 @@ NSFetchedResultsControllerDelegate {
         return CGFloat(200)
     }
     
+    
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if displayObjectCount != nil {
-            if (indexPath.row + 5) == displayObjectCount {
+            if (indexPath.row + 9) == displayObjectCount {
                 print("End Is Near")
             }
         }
         // MARK: - Will try to use this to download next set of data
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let objects = seriesFetchedResultController.fetchedObjects , objects.count > 0 {
+            let series = objects[indexPath.row]
+            performSegue(withIdentifier: "seriesDetail", sender: series)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? DetailViewController {
+            if let series = sender as? Series {
+                destination.series = series
+            }
+        }
     }
 }
 

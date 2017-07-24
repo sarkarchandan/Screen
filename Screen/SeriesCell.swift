@@ -25,7 +25,7 @@ class SeriesCell: UITableViewCell {
             }
         }
         self.seriesName.text = series.name
-        self.seriesRating.text = "TMDB \(series.rating)/10"
+        self.seriesRating.text = "TMDB \(series.rating) /10"
         
         let SERIES_DETAIL_URL = "\(BASE_URL_TV)\(series.id)\(AUTH_PARAM)\(API_KEY)"
         
