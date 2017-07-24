@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17561A911F267E990055E41D /* RoundLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17561A901F267E990055E41D /* RoundLabel.swift */; };
 		175891FD1F263AB600A42D61 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175891FC1F263AB600A42D61 /* DetailViewController.swift */; };
 		175891FF1F26434800A42D61 /* GradientImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175891FE1F26434800A42D61 /* GradientImageView.swift */; };
 		176662CF1F26005C007C9D9E /* APIEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176662CE1F26005C007C9D9E /* APIEngine.swift */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		05A686BF0961C248C6669C38 /* Pods-Screen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Screen.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Screen/Pods-Screen.debug.xcconfig"; sourceTree = "<group>"; };
 		099AA8DE71EA60E86A048832 /* Pods_ScreenTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScreenTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		17561A901F267E990055E41D /* RoundLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundLabel.swift; sourceTree = "<group>"; };
 		175891FC1F263AB600A42D61 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		175891FE1F26434800A42D61 /* GradientImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientImageView.swift; sourceTree = "<group>"; };
 		176662CE1F26005C007C9D9E /* APIEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIEngine.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				17805C951F2565F40066E73A /* SeriesCell.swift */,
 				17805C971F2578EB0066E73A /* RoundCornerImageView.swift */,
 				175891FE1F26434800A42D61 /* GradientImageView.swift */,
+				17561A901F267E990055E41D /* RoundLabel.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				175891FD1F263AB600A42D61 /* DetailViewController.swift in Sources */,
 				17805C941F255F950066E73A /* RoundButton.swift in Sources */,
 				175891FF1F26434800A42D61 /* GradientImageView.swift in Sources */,
+				17561A911F267E990055E41D /* RoundLabel.swift in Sources */,
 				17805C901F253F6B0066E73A /* Series.swift in Sources */,
 				176662CF1F26005C007C9D9E /* APIEngine.swift in Sources */,
 				17805C661F253B8A0066E73A /* ScreenViewController.swift in Sources */,
