@@ -24,6 +24,11 @@ class DetailViewController: UIViewController {
     }
     
     @IBOutlet weak var backdropOutlet: GradientView!
+    @IBOutlet weak var nameOutlet: UILabel!
+    @IBOutlet weak var firstAirDateOutlet: UILabel!
+    @IBOutlet weak var ratingOutlet: RoundLabel!
+    @IBOutlet weak var synopsisOutlet: UILabel!
+    
     
 
     override func viewDidLoad() {
@@ -32,6 +37,7 @@ class DetailViewController: UIViewController {
             topItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
         }
         setTranslucentNavigationBar()
+        updateSeriesInformation()
         loadBackdropImage()
     }
     
@@ -51,6 +57,13 @@ class DetailViewController: UIViewController {
                 self.backdropOutlet.image = image
             }
         }
+    }
+    
+    func updateSeriesInformation() {
+        self.nameOutlet.text = series.name
+        self.firstAirDateOutlet.text = series.first_air_date
+        self.ratingOutlet.text = "\(series.rating)/10"
+        self.synopsisOutlet.text = series.synopsis
     }
 }
 

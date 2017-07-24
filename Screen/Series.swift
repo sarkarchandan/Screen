@@ -42,7 +42,7 @@ class Series: NSManagedObject {
                         if let seriesBackdropUri = series["backdrop_path"] as? String {
                             seriesEntity.backdrop_path = "\(BASE_URL_BACKDROP)\(seriesBackdropUri)"
                         }
-                        if let seriesFirstAirDate = series["first_air_date"] as? NSDate {
+                        if let seriesFirstAirDate = series["first_air_date"] as? String {
                             seriesEntity.first_air_date = seriesFirstAirDate
                         }
                         if let seriesGenreIds = series["genre_ids"] as? [Int] {

@@ -6,7 +6,7 @@
     </entity>
     <entity name="Series" representedClassName=".Series" syncable="YES" codeGenerationType="category">
         <attribute name="backdrop_path" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="first_air_date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="first_air_date" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="has_liked" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -16,7 +16,7 @@
         <relationship name="toGenre" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Genre" inverseName="toSeries" inverseEntity="Genre" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Series" positionX="-63" positionY="-18" width="128" height="178"/>
         <element name="Genre" positionX="153" positionY="54" width="128" height="73"/>
+        <element name="Series" positionX="-63" positionY="-18" width="128" height="178"/>
     </elements>
 </model>
