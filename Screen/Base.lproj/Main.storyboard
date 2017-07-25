@@ -349,31 +349,31 @@
                                 </constraints>
                             </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4tx-u5-Vr6">
-                                <rect key="frame" x="0.0" y="580" width="414" height="146"/>
+                                <rect key="frame" x="0.0" y="572" width="414" height="158"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="8" minimumInteritemSpacing="8" id="XDi-hl-pJN">
-                                    <size key="itemSize" width="120" height="130"/>
+                                    <size key="itemSize" width="130" height="140"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="8" minY="8" maxX="8" maxY="8"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="actorCell" id="IkV-Lo-Yak" customClass="CastCollectionViewCell" customModule="Screen">
-                                        <rect key="frame" x="8" y="8" width="120" height="130"/>
+                                        <rect key="frame" x="8" y="9" width="130" height="140"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="120" height="130"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="130" height="140"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="prof2" translatesAutoresizingMaskIntoConstraints="NO" id="1Py-mF-zfq" customClass="RoundImageView" customModule="Screen" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="10" width="80" height="80"/>
+                                                    <rect key="frame" x="10" y="9" width="110" height="110"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="80" id="NSq-VW-1OM"/>
-                                                        <constraint firstAttribute="height" constant="80" id="zlJ-vl-iBf"/>
+                                                        <constraint firstAttribute="width" constant="110" id="NSq-VW-1OM"/>
+                                                        <constraint firstAttribute="height" constant="110" id="zlJ-vl-iBf"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                            <real key="value" value="40"/>
+                                                            <real key="value" value="55"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                             <real key="value" value="1"/>
@@ -381,8 +381,8 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Peter Dinklage" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="aBN-ml-hlk">
-                                                    <rect key="frame" x="2" y="106" width="116" height="22"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
+                                                    <rect key="frame" x="2" y="123" width="126" height="16"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -391,10 +391,11 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="aBN-ml-hlk" firstAttribute="centerX" secondItem="IkV-Lo-Yak" secondAttribute="centerX" id="5o4-2m-Wz6"/>
-                                            <constraint firstItem="1Py-mF-zfq" firstAttribute="top" secondItem="IkV-Lo-Yak" secondAttribute="topMargin" constant="2" id="CAy-5O-Kt0"/>
+                                            <constraint firstItem="1Py-mF-zfq" firstAttribute="top" secondItem="IkV-Lo-Yak" secondAttribute="topMargin" constant="1" id="CAy-5O-Kt0"/>
                                             <constraint firstItem="aBN-ml-hlk" firstAttribute="leading" secondItem="IkV-Lo-Yak" secondAttribute="leading" constant="2" id="LeN-iG-2ip"/>
+                                            <constraint firstItem="aBN-ml-hlk" firstAttribute="top" secondItem="1Py-mF-zfq" secondAttribute="bottom" constant="4" id="VmS-3A-mkd"/>
                                             <constraint firstAttribute="trailing" secondItem="aBN-ml-hlk" secondAttribute="trailing" constant="2" id="WZ9-K5-epT"/>
-                                            <constraint firstAttribute="bottom" secondItem="aBN-ml-hlk" secondAttribute="bottom" constant="2" id="eDy-Pp-kog"/>
+                                            <constraint firstAttribute="bottom" secondItem="aBN-ml-hlk" secondAttribute="bottom" constant="1" id="eDy-Pp-kog"/>
                                             <constraint firstItem="1Py-mF-zfq" firstAttribute="centerX" secondItem="IkV-Lo-Yak" secondAttribute="centerX" id="flu-NG-biG"/>
                                         </constraints>
                                         <connections>
@@ -412,12 +413,12 @@
                             <constraint firstAttribute="trailing" secondItem="cam-De-pGA" secondAttribute="trailing" constant="8" id="Dfk-H6-tnt"/>
                             <constraint firstItem="TbZ-WJ-lPT" firstAttribute="leading" secondItem="hfj-6M-UA3" secondAttribute="leading" constant="4" id="Dmc-tX-Pjm"/>
                             <constraint firstItem="PlA-Le-YCi" firstAttribute="top" secondItem="hfj-6M-UA3" secondAttribute="top" id="GUo-2i-GGh"/>
-                            <constraint firstItem="eZy-4V-r1z" firstAttribute="top" secondItem="4tx-u5-Vr6" secondAttribute="bottom" constant="10" id="LnL-eu-UQD"/>
+                            <constraint firstItem="eZy-4V-r1z" firstAttribute="top" secondItem="4tx-u5-Vr6" secondAttribute="bottom" constant="6" id="LnL-eu-UQD"/>
                             <constraint firstItem="PlA-Le-YCi" firstAttribute="leading" secondItem="hfj-6M-UA3" secondAttribute="leading" id="Tj1-Gs-0Ve"/>
                             <constraint firstItem="4tx-u5-Vr6" firstAttribute="leading" secondItem="hfj-6M-UA3" secondAttribute="leading" id="WLb-cM-2Ep"/>
                             <constraint firstItem="TbZ-WJ-lPT" firstAttribute="top" secondItem="4wZ-5E-OFT" secondAttribute="bottom" constant="220" id="dof-Dn-Jvs"/>
                             <constraint firstItem="cam-De-pGA" firstAttribute="leading" secondItem="hfj-6M-UA3" secondAttribute="leading" constant="8" id="kYd-wP-sJd"/>
-                            <constraint firstItem="4tx-u5-Vr6" firstAttribute="top" secondItem="cam-De-pGA" secondAttribute="bottom" constant="10" id="n5d-VZ-pAj"/>
+                            <constraint firstItem="4tx-u5-Vr6" firstAttribute="top" secondItem="cam-De-pGA" secondAttribute="bottom" constant="2" id="n5d-VZ-pAj"/>
                             <constraint firstAttribute="trailing" secondItem="PlA-Le-YCi" secondAttribute="trailing" id="pqV-ou-qQg"/>
                             <constraint firstItem="cam-De-pGA" firstAttribute="top" secondItem="TbZ-WJ-lPT" secondAttribute="bottom" constant="8" id="sns-Cn-lip"/>
                             <constraint firstItem="TbZ-WJ-lPT" firstAttribute="centerX" secondItem="hfj-6M-UA3" secondAttribute="centerX" id="zSO-5a-vSK"/>

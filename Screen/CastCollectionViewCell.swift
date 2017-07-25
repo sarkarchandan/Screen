@@ -17,9 +17,11 @@ class CastCollectionViewCell: UICollectionViewCell {
     
     func configureCastCell(_ cast: Cast) {
         self.castNameOutlet.text = cast.actor_name
-        Alamofire.request(cast.profile_path!).responseImage { response in
-            if let actorImage = response.result.value {
-                self.castImageOutlet.image = actorImage
+        if let profile_url = cast.profile_path {
+            Alamofire.request(profile_url).responseImage { response in
+                if let actorImage = response.result.value {
+                    self.castImageOutlet.image = actorImage
+                }
             }
         }
     }
