@@ -11,7 +11,7 @@ import UIKit
 class RoundCornerImageView: UIImageView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.layer.cornerRadius = 5.0
+        self.layer.cornerRadius = 3.0
         self.clipsToBounds = true
     }
 }

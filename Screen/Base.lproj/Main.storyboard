@@ -92,9 +92,6 @@
                                                                         <constraint firstAttribute="height" constant="183" id="Rbf-DO-6Fh"/>
                                                                         <constraint firstAttribute="width" constant="130" id="d5v-AS-Mop"/>
                                                                     </constraints>
-                                                                    <userDefinedRuntimeAttributes>
-                                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="usingMaterialDesign" value="YES"/>
-                                                                    </userDefinedRuntimeAttributes>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Aca-8V-Exu">
                                                                     <rect key="frame" x="146" y="8" width="212" height="40"/>
@@ -429,12 +426,17 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gSf-9J-J1g">
-                        <barButtonItem key="rightBarButtonItem" image="icons8-Heart_30" id="sMK-NP-Cjr"/>
+                        <barButtonItem key="rightBarButtonItem" image="icons8-Heart_30" id="sMK-NP-Cjr">
+                            <connections>
+                                <action selector="likeButtonClicked:" destination="01C-yk-vGD" id="QIz-NP-dos"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="backdropOutlet" destination="PlA-Le-YCi" id="Wll-Lo-IHc"/>
                         <outlet property="castCollectionViewOutlet" destination="4tx-u5-Vr6" id="Q4Z-q5-wLO"/>
                         <outlet property="firstAirDateOutlet" destination="dcd-bq-XcB" id="Jah-je-Ki7"/>
+                        <outlet property="likeBarButtonOutlet" destination="sMK-NP-Cjr" id="Khf-FX-ja9"/>
                         <outlet property="nameOutlet" destination="2RI-Fl-Y0H" id="Fl8-lr-Fk3"/>
                         <outlet property="ratingOutlet" destination="9XN-di-QBT" id="w6k-xc-Sf5"/>
                         <outlet property="synopsisOutlet" destination="daa-jU-hJs" id="IM3-db-8Fa"/>

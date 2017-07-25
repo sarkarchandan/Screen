@@ -33,9 +33,8 @@ UICollectionViewDelegate {
     @IBOutlet weak var ratingOutlet: RoundLabel!
     @IBOutlet weak var synopsisOutlet: UILabel!
     @IBOutlet weak var castCollectionViewOutlet: UICollectionView!
+    @IBOutlet weak var likeBarButtonOutlet: UIBarButtonItem!
     
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         if let topItem = self.navigationController?.navigationBar.topItem{
@@ -44,8 +43,25 @@ UICollectionViewDelegate {
         setTranslucentNavigationBar()
         updateSeriesInformation()
         loadBackdropImage()
+        if series.has_liked == true {
+            self.likeBarButtonOutlet.image = UIImage(named: "icons8-Heart Filled-30.png")
+        }else {
+            self.likeBarButtonOutlet.image = UIImage(named: "icons8-Heart_30.png")
+        }
         self.castCollectionViewOutlet.dataSource = self
         self.castCollectionViewOutlet.delegate = self
+    }
+    
+    
+    @IBAction func likeButtonClicked(_ sender: Any) {
+        if series.has_liked == false {
+            series.has_liked = true
+            self.likeBarButtonOutlet.image = UIImage(named: "icons8-Heart Filled-30.png")
+        }else {
+            series.has_liked = false
+            self.likeBarButtonOutlet.image = UIImage(named: "icons8-Heart_30.png")
+        }
+        try? viewContext?.save()
     }
     
     // Configures the Translucent Navigation Bar

@@ -12,7 +12,7 @@ import AlamofireImage
 
 class SeriesCell: UITableViewCell {
     
-    @IBOutlet weak var seriesBackDrop: UIImageView!
+    @IBOutlet weak var seriesBackDrop: RoundImageView!
     @IBOutlet weak var seriesName: UILabel!
     @IBOutlet weak var seriesRating: UILabel!
     @IBOutlet weak var seriesGenres: UILabel!

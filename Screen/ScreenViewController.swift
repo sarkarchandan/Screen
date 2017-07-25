@@ -38,6 +38,12 @@ NSFetchedResultsControllerDelegate {
         self.attemptFetchSeriesData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.segmentPickerOutlet.selectedSegmentIndex = 0
+        self.attemptFetchSeriesData()
+        self.seriesTableViewOutlet.reloadData()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         self.seriesTableViewOutlet.reloadData()
     }
@@ -149,6 +155,38 @@ NSFetchedResultsControllerDelegate {
         self.seriesTableViewOutlet.endUpdates()
     }
     
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        
+        switch type {
+        case .insert:
+            if let indexPath = newIndexPath {
+                self.seriesTableViewOutlet.insertRows(at: [indexPath], with: .fade)
+            }
+            break
+        case .update:
+            if let indexPath = indexPath {
+                if let cell = self.seriesTableViewOutlet.cellForRow(at: indexPath) as? SeriesCell{
+                    self.configureCell(cell, indexPath as NSIndexPath)
+                }
+            }
+            break
+        case .move:
+            if let indexPath = indexPath {
+                self.seriesTableViewOutlet.deleteRows(at: [indexPath], with: .fade)
+            }
+            if let indexPath = newIndexPath {
+                self.seriesTableViewOutlet.insertRows(at: [indexPath], with: .fade)
+            }
+            break
+        case .delete:
+            if let indexPath = indexPath {
+                self.seriesTableViewOutlet.deleteRows(at: [indexPath], with: .fade)
+            }
+            break
+        }
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         if let sections = seriesFetchedResultController.sections {
             return sections.count
@@ -167,12 +205,16 @@ NSFetchedResultsControllerDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "seriesCell") as? SeriesCell {
-            let series = self.seriesFetchedResultController.object(at: indexPath)
-            cell.configureCell(series)
+            self.configureCell(cell, indexPath as NSIndexPath)
             return cell
         } else {
             return UITableViewCell()
         }
+    }
+    
+    func configureCell(_ cell: SeriesCell, _ indexPath: NSIndexPath) {
+        let series = self.seriesFetchedResultController.object(at: indexPath as IndexPath)
+        cell.configureCell(series)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
