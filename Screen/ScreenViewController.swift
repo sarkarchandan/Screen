@@ -17,6 +17,7 @@ NSFetchedResultsControllerDelegate {
     
     
     @IBOutlet weak var seriesTableViewOutlet: UITableView!
+    @IBOutlet weak var segmentPickerOutlet: UISegmentedControl!
     
     // Getting an optional reference of the NSPersistentContainer
     var container: NSPersistentContainer? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
@@ -46,6 +47,14 @@ NSFetchedResultsControllerDelegate {
         self.attemptFetchSeriesData()
         self.seriesTableViewOutlet.reloadData()
     }
+    
+    
+    @IBAction func segmentChanged(_ sender: Any) {
+        self.attemptFetchSeriesData()
+        self.seriesTableViewOutlet.reloadData()
+    }
+    
+    
     
     // Makes the NavigationBar Transparent
     func makeNavigationBarTransparent() {
@@ -103,8 +112,24 @@ NSFetchedResultsControllerDelegate {
     // Attempts to fetch the Series data from Datastore
     func attemptFetchSeriesData() {
         let seriesFetchRequest: NSFetchRequest<Series> = Series.fetchRequest()
-        let defaultSortDescriptor = NSSortDescriptor(key: "rating", ascending: false)
+        
+        var defaultSortDescriptor: NSSortDescriptor
+        
+        if self.segmentPickerOutlet.selectedSegmentIndex == 0 {
+            defaultSortDescriptor = NSSortDescriptor(key: "rating", ascending: false)
+            
+        }else if self.segmentPickerOutlet.selectedSegmentIndex == 1 {
+            defaultSortDescriptor = NSSortDescriptor(key: "first_air_date", ascending: false)
+        }else if self.segmentPickerOutlet.selectedSegmentIndex == 2 {
+            defaultSortDescriptor = NSSortDescriptor(key: "rating", ascending: false)
+            let predicateForLikeSeries = NSPredicate(format: "has_liked == %@", true as CVarArg)
+            seriesFetchRequest.predicate = predicateForLikeSeries
+        }else {
+            defaultSortDescriptor = NSSortDescriptor(key: "rating", ascending: false)
+        }
+        
         seriesFetchRequest.sortDescriptors = [defaultSortDescriptor]
+        
         seriesFetchedResultController = NSFetchedResultsController(fetchRequest: seriesFetchRequest, managedObjectContext: viewContext!, sectionNameKeyPath: nil, cacheName: nil)
         self.seriesFetchedResultController.delegate = self
         do {
