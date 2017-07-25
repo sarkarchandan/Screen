@@ -41,6 +41,12 @@ NSFetchedResultsControllerDelegate {
         self.seriesTableViewOutlet.reloadData()
     }
     
+    
+    @IBAction func refreshButtonClicked(_ sender: Any) {
+        self.attemptFetchSeriesData()
+        self.seriesTableViewOutlet.reloadData()
+    }
+    
     // Makes the NavigationBar Transparent
     func makeNavigationBarTransparent() {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
@@ -71,6 +77,10 @@ NSFetchedResultsControllerDelegate {
         }
         self.seriesTableViewOutlet.reloadData()
         printDatabaseStatistic()
+    }
+    
+    func persistCastData() {
+        
     }
     
     // Checks whether the persistence is successful

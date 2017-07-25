@@ -48,6 +48,7 @@ class Series: NSManagedObject {
                         if let seriesGenreIds = series["genre_ids"] as? [Int] {
                             seriesEntity.toGenre?.addingObjects(from: seriesGenreIds)
                         }
+                        Cast.downloadAndPersistCasts(seriesEntity, context)
                     }
                 }catch{
                     throw error

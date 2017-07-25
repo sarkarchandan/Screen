@@ -9,8 +9,12 @@
 import UIKit
 import Alamofire
 import AlamofireImage
+import CoreData
 
-class DetailViewController: UIViewController {
+class DetailViewController:
+UIViewController,
+UICollectionViewDataSource,
+UICollectionViewDelegate {
     
     private var _series: Series!
     
@@ -28,6 +32,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var firstAirDateOutlet: UILabel!
     @IBOutlet weak var ratingOutlet: RoundLabel!
     @IBOutlet weak var synopsisOutlet: UILabel!
+    @IBOutlet weak var castCollectionViewOutlet: UICollectionView!
     
     
 
@@ -39,6 +44,8 @@ class DetailViewController: UIViewController {
         setTranslucentNavigationBar()
         updateSeriesInformation()
         loadBackdropImage()
+        self.castCollectionViewOutlet.dataSource = self
+        self.castCollectionViewOutlet.delegate = self
     }
     
     // Configures the Translucent Navigation Bar
@@ -64,6 +71,30 @@ class DetailViewController: UIViewController {
         self.firstAirDateOutlet.text = series.first_air_date
         self.ratingOutlet.text = "\(series.rating)/10"
         self.synopsisOutlet.text = series.synopsis
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if let seriesCastArray = series.toCast?.allObjects as? [Cast] {
+            return seriesCastArray.count
+        }else{
+            return 0
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "actorCell", for: indexPath) as? CastCollectionViewCell{
+            if let seriesCastArray = series.toCast?.allObjects as? [Cast] {
+                let cast = seriesCastArray[indexPath.row]
+                cell.configureCastCell(cast)
+            }
+            return cell
+        }else {
+            return UICollectionViewCell()
+        }
     }
 }
 
