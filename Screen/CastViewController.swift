@@ -83,7 +83,11 @@ class CastViewController: UIViewController {
                     self.actorLocation.text = location
                 }
                 if let actorBio = castDetail["biography"] as? String {
-                    self.actorBio.text = actorBio
+                    if actorBio != "" {
+                        self.actorBio.text = actorBio
+                    } else {
+                        self.actorBio.text = "No Information Available"
+                    }
                 }
             }
         }
