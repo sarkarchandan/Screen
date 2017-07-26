@@ -13,7 +13,8 @@ import Alamofire
 class ScreenViewController: UIViewController,
 UITableViewDelegate,
 UITableViewDataSource,
-NSFetchedResultsControllerDelegate {
+NSFetchedResultsControllerDelegate,
+UISearchBarDelegate {
     
     
     @IBOutlet weak var seriesTableViewOutlet: UITableView!
@@ -25,7 +26,16 @@ NSFetchedResultsControllerDelegate {
     // Declaring the reference of NSFetchedResultControllerDelegate
     var seriesFetchedResultController: NSFetchedResultsController<Series>!
     
+    // Declaring the reference of NSFetchedRequest
+    var seriesFetchRequest: NSFetchRequest<Series>!
+    
+    //UISearchController reference as Optional
+    private var searchController: UISearchController?
+    
     var displayObjectCount: Int?
+    
+    // Flag to determine if the user is seraching
+    var searchMode: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +46,8 @@ NSFetchedResultsControllerDelegate {
             self.seriesTableViewOutlet.reloadData()
         }
         self.attemptFetchSeriesData()
+        searchController?.searchBar.delegate = self
+        searchController?.searchBar.returnKeyType = UIReturnKeyType.done
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,6 +72,28 @@ NSFetchedResultsControllerDelegate {
         self.seriesTableViewOutlet.reloadData()
     }
     
+    // IBAction function for the Search Functionality
+    @IBAction func searchBarButtonClicked(_ sender: UIBarButtonItem) {
+        searchController = UISearchController(searchResultsController: nil)
+        searchController?.hidesNavigationBarDuringPresentation = true
+        searchController?.searchBar.keyboardType = UIKeyboardType.default
+        searchController?.searchBar.placeholder = "Looking for a series !!!"
+        searchController?.searchBar.searchBarStyle = UISearchBarStyle.minimal
+        (searchController?.searchBar.value(forKey: "searchField") as? UITextField)?.textColor = UIColor.black
+        searchController?.searchBar.tintColor = UIColor.black
+        self.searchController?.searchBar.delegate = self
+        self.segmentPickerOutlet.isHidden = true
+        present(searchController!, animated: true, completion: nil)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.segmentPickerOutlet.isHidden = false
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        self.segmentPickerOutlet.isHidden = false
+        self.seriesTableViewOutlet.reloadData()
+    }
     
     
     // Makes the NavigationBar Transparent
@@ -79,7 +113,6 @@ NSFetchedResultsControllerDelegate {
             page_index = PAGE_VALUE
         }
         let BASIC_TV_DATA_URL = "\(BASE_URL_TV)\(TV_TYPE_POPULAR)\(AUTH_PARAM)\(API_KEY)\(PAGE_PARAM)\(String(describing: page_index))"
-        print("Current Series URL: \(BASIC_TV_DATA_URL)")
         Alamofire.request(BASIC_TV_DATA_URL).responseJSON { response in
             if let data = response.result.value as? [String:Any] {
                 if let series_array = data["results"] as? [[String:Any]] {
@@ -120,7 +153,7 @@ NSFetchedResultsControllerDelegate {
     
     // Attempts to fetch the Series data from Datastore
     func attemptFetchSeriesData() {
-        let seriesFetchRequest: NSFetchRequest<Series> = Series.fetchRequest()
+        seriesFetchRequest = Series.fetchRequest()
         
         var defaultSortDescriptor: NSSortDescriptor
         
@@ -227,15 +260,22 @@ NSFetchedResultsControllerDelegate {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if displayObjectCount != nil {
-            if (indexPath.row + 9) == displayObjectCount {
-                print("End Is Near")
+            if (indexPath.row + 5) == displayObjectCount {
                 self.downloadSeriesData {
                     self.attemptFetchSeriesData()
+                    self.createAlert()
                 }
                 self.seriesTableViewOutlet.reloadData()
             }
         }
-        // MARK: - Will try to use this to download next set of data
+    }
+    
+    func createAlert() {
+        let newSeriesDataAlert = UIAlertController(title: NEW_DATA_AVAILABLE_ALERT_TITLE, message: NEW_DATA_AVAILABLE_ALERT_MESSAGE, preferredStyle: UIAlertControllerStyle.alert)
+        newSeriesDataAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: { (action) in
+            newSeriesDataAlert.dismiss(animated: true, completion: nil)
+        }))
+        self.present(newSeriesDataAlert, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -251,6 +291,27 @@ NSFetchedResultsControllerDelegate {
                 destination.series = series
             }
         }
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchController?.searchBar.text == nil || searchController?.searchBar.text == "" {
+            searchMode = false
+            self.seriesTableViewOutlet.reloadData()
+            self.view.endEditing(true)
+        } else{
+            searchMode = true
+            print("Typed Char: \(searchText)")
+            let searchPredicate = NSPredicate(format: "( name BEGINSWITH[c] %@ ) || ( name CONTAINS[c] %@ )",searchText)
+            self.seriesFetchRequest.predicate = searchPredicate
+            self.attemptFetchSeriesData()
+            self.seriesTableViewOutlet.reloadData()
+        }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.attemptFetchSeriesData()
+        self.seriesTableViewOutlet.reloadData()
+        self.view.endEditing(true)
     }
 }
 

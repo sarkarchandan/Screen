@@ -39,7 +39,6 @@ class CastViewController: UIViewController {
         self.setTranslucentNavigationBar()
         self.configureCastImages()
         self.configureCastTextData()
-        print("Actor Id: \(cast.actorId)")
     }
     
     // Configures the Translucent Navigation Bar

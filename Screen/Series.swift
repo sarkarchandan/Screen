@@ -18,7 +18,6 @@ class Series: NSManagedObject {
                 let seriesFetchRequest: NSFetchRequest<Series> = Series.fetchRequest()
                 let seriesPredicate = NSPredicate(format: "name == %@", seriesName)
                 seriesFetchRequest.predicate = seriesPredicate
-                
                 do{
                     let matchingSerieses = try context.fetch(seriesFetchRequest)
                     assert(matchingSerieses.count <= 1, "Datastore inconsistency detected")
@@ -53,6 +52,7 @@ class Series: NSManagedObject {
                 }catch{
                     throw error
                 }
+                
             }
         }
     }
