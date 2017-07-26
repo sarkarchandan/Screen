@@ -103,9 +103,11 @@ UICollectionViewDelegate {
     }
     
     func loadBackdropImage() {
-        Alamofire.request(series.backdrop_path!).responseImage { response in
-            if let image = response.result.value {
-                self.backdropOutlet.image = image
+        if let backdropImageUrl = series.backdrop_path {
+            Alamofire.request(backdropImageUrl).responseImage { response in
+                if let image = response.result.value {
+                    self.backdropOutlet.image = image
+                }
             }
         }
     }

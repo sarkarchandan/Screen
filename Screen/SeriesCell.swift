@@ -20,9 +20,11 @@ class SeriesCell: UITableViewCell {
     
     // Configures the Series Cell
     func configureCell(_ series: Series) {
-        Alamofire.request(series.poster_path!).responseImage { response in
-            if let image = response.result.value{
-                self.seriesBackDrop.image = image
+        if let posterPath = series.poster_path {
+            Alamofire.request(posterPath).responseImage { response in
+                if let image = response.result.value{
+                    self.seriesBackDrop.image = image
+                }
             }
         }
         self.seriesName.text = series.name

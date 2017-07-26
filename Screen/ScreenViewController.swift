@@ -72,8 +72,14 @@ NSFetchedResultsControllerDelegate {
     
     // Downloads Series with Alamofire
     func downloadSeriesData(completed: @escaping DownloadComplete) {
-        let PAGE_VALUE = 1
-        let BASIC_TV_DATA_URL = "\(BASE_URL_TV)\(TV_TYPE_POPULAR)\(AUTH_PARAM)\(API_KEY)\(PAGE_PARAM)\(String(describing: PAGE_VALUE))"
+        var page_index: Int
+        if let page = UserDefaults.standard.object(forKey: "series_page") as? Int {
+            page_index = page
+        }else{
+            page_index = PAGE_VALUE
+        }
+        let BASIC_TV_DATA_URL = "\(BASE_URL_TV)\(TV_TYPE_POPULAR)\(AUTH_PARAM)\(API_KEY)\(PAGE_PARAM)\(String(describing: page_index))"
+        print("Current Series URL: \(BASIC_TV_DATA_URL)")
         Alamofire.request(BASIC_TV_DATA_URL).responseJSON { response in
             if let data = response.result.value as? [String:Any] {
                 if let series_array = data["results"] as? [[String:Any]] {
@@ -92,6 +98,8 @@ NSFetchedResultsControllerDelegate {
         }
         self.seriesTableViewOutlet.reloadData()
         printDatabaseStatistic()
+        PAGE_VALUE += 1
+        UserDefaults.standard.set(PAGE_VALUE, forKey: "series_page")
     }
     
     func persistCastData() {
@@ -101,14 +109,9 @@ NSFetchedResultsControllerDelegate {
     // Checks whether the persistence is successful
     func printDatabaseStatistic(){
         container?.viewContext.perform {
-            if Thread.isMainThread {
-                print("Main Thread")
-            }else{
-                print("Background Thread")
-            }
-            if (self.container?.viewContext) != nil {
+            if viewContext != nil {
                 let seriesFethcRequest: NSFetchRequest<Series> = Series.fetchRequest()
-                if let seriesCount = (try? self.container?.viewContext.fetch(seriesFethcRequest))??.count {
+                if let seriesCount = (try? viewContext?.fetch(seriesFethcRequest))??.count {
                     print("Series Count: \(seriesCount)")
                 }
             }
@@ -226,6 +229,10 @@ NSFetchedResultsControllerDelegate {
         if displayObjectCount != nil {
             if (indexPath.row + 9) == displayObjectCount {
                 print("End Is Near")
+                self.downloadSeriesData {
+                    self.attemptFetchSeriesData()
+                }
+                self.seriesTableViewOutlet.reloadData()
             }
         }
         // MARK: - Will try to use this to download next set of data
