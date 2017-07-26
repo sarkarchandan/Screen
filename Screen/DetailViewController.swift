@@ -40,9 +40,9 @@ UICollectionViewDelegate {
         if let topItem = self.navigationController?.navigationBar.topItem{
             topItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
         }
-        setTranslucentNavigationBar()
-        updateSeriesInformation()
-        loadBackdropImage()
+        self.setTranslucentNavigationBar()
+        self.updateSeriesInformation()
+        self.loadBackdropImage()
         if series.has_liked == true {
             self.likeBarButtonOutlet.image = UIImage(named: "icons8-Heart Filled-30.png")
         }else {
@@ -110,6 +110,21 @@ UICollectionViewDelegate {
             return cell
         }else {
             return UICollectionViewCell()
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let seriesCastArray = series.toCast?.allObjects as? [Cast] , seriesCastArray.count > 0  {
+            let cast = seriesCastArray[indexPath.row]
+            performSegue(withIdentifier: "castDetail", sender: cast)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? CastViewController {
+            if let cast = sender as? Cast{
+                destination.cast = cast
+            }
         }
     }
 }

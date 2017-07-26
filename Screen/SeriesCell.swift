@@ -44,6 +44,5 @@ class SeriesCell: UITableViewCell {
                 }
             }
         }
-        print("\(String(describing: series.id)): \(String(describing: series.toCast?.count))")
     }
 }

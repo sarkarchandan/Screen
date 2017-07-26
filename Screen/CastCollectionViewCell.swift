@@ -23,6 +23,8 @@ class CastCollectionViewCell: UICollectionViewCell {
                     self.castImageOutlet.image = actorImage
                 }
             }
+        } else {
+            self.castImageOutlet.image = UIImage(named: "prof2.png")
         }
     }
 }

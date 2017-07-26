@@ -12,6 +12,7 @@ import Foundation
 
 
 let BASE_URL_TV = "http://api.themoviedb.org/3/tv/"
+let BASE_URL_PERSON = "https://api.themoviedb.org/3/person/"
 let AUTH_PARAM = "?api_key="
 let TV_TYPE_POPULAR = "popular"
 let TV_CREDIT_PARAM = "/credits"

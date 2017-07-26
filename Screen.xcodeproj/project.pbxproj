@@ -14,6 +14,7 @@
 		175891FD1F263AB600A42D61 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175891FC1F263AB600A42D61 /* DetailViewController.swift */; };
 		175891FF1F26434800A42D61 /* GradientImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175891FE1F26434800A42D61 /* GradientImageView.swift */; };
 		176662CF1F26005C007C9D9E /* APIEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176662CE1F26005C007C9D9E /* APIEngine.swift */; };
+		177D1F261F280D8200F98422 /* CastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177D1F251F280D8200F98422 /* CastViewController.swift */; };
 		17805C641F253B8A0066E73A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17805C631F253B8A0066E73A /* AppDelegate.swift */; };
 		17805C661F253B8A0066E73A /* ScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17805C651F253B8A0066E73A /* ScreenViewController.swift */; };
 		17805C691F253B8A0066E73A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17805C671F253B8A0066E73A /* Main.storyboard */; };
@@ -51,6 +52,7 @@
 		175891FC1F263AB600A42D61 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		175891FE1F26434800A42D61 /* GradientImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientImageView.swift; sourceTree = "<group>"; };
 		176662CE1F26005C007C9D9E /* APIEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIEngine.swift; sourceTree = "<group>"; };
+		177D1F251F280D8200F98422 /* CastViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CastViewController.swift; sourceTree = "<group>"; };
 		17805C601F253B8A0066E73A /* Screen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Screen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17805C631F253B8A0066E73A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17805C651F253B8A0066E73A /* ScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				17805C631F253B8A0066E73A /* AppDelegate.swift */,
 				17805C651F253B8A0066E73A /* ScreenViewController.swift */,
 				175891FC1F263AB600A42D61 /* DetailViewController.swift */,
+				177D1F251F280D8200F98422 /* CastViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 				17805C661F253B8A0066E73A /* ScreenViewController.swift in Sources */,
 				17805C6C1F253B8A0066E73A /* Screen.xcdatamodeld in Sources */,
 				17805C961F2565F40066E73A /* SeriesCell.swift in Sources */,
+				177D1F261F280D8200F98422 /* CastViewController.swift in Sources */,
 				17805C641F253B8A0066E73A /* AppDelegate.swift in Sources */,
 				17561A971F26A8F70055E41D /* RoundedImageView.swift in Sources */,
 				17805C8B1F253CA80066E73A /* MaterialView.swift in Sources */,
