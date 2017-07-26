@@ -8,6 +8,7 @@ target 'Screen' do
   # Pods for Screen
   pod 'Alamofire', '~> 4.4'
   pod 'AlamofireImage', '~> 3.1'
+  pod 'YouTubePlayer', '~> 0.4'
 
   target 'ScreenTests' do
     inherit! :search_paths

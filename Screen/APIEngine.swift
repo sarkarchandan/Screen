@@ -16,6 +16,7 @@ let BASE_URL_PERSON = "\(BASE_ENDPOINT)person/"
 let AUTH_PARAM = "?api_key="
 let TV_TYPE_POPULAR = "popular"
 let TV_CREDIT_PARAM = "/credits"
+let TV_VIDEO_PARAM = "/videos"
 let PAGE_PARAM = "&page="
 
 
@@ -27,7 +28,7 @@ let BASE_URL_PROFILE = BASE_URL_BACKDROP
 let BASE_URL_TV_GENRES = "\(BASE_ENDPOINT)genre/tv/list?api_key="
 
 //Your API Key goes here//
-let API_KEY = "API Key Here"
+let API_KEY = "API key Here"
 
 //Custom closure that will denote the completion of the download
 typealias DownloadComplete = () -> ()

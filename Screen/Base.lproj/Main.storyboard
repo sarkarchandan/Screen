@@ -406,11 +406,25 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GcP-j9-5r8">
+                                <rect key="frame" x="172" y="74" width="70" height="202"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="icons8_Circled_Play_70">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="trailerButtonPressed:" destination="01C-yk-vGD" eventType="touchUpInside" id="w0Q-Ey-hZF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="TbZ-WJ-lPT" secondAttribute="trailing" constant="4" id="3dT-Jb-bju"/>
                             <constraint firstAttribute="trailing" secondItem="4tx-u5-Vr6" secondAttribute="trailing" id="7Wi-nl-3Zl"/>
+                            <constraint firstItem="2RI-Fl-Y0H" firstAttribute="top" secondItem="GcP-j9-5r8" secondAttribute="bottom" constant="8" id="9W7-3n-DIa"/>
+                            <constraint firstItem="GcP-j9-5r8" firstAttribute="centerX" secondItem="hfj-6M-UA3" secondAttribute="centerX" id="Bz4-6k-c1X"/>
                             <constraint firstAttribute="trailing" secondItem="cam-De-pGA" secondAttribute="trailing" constant="8" id="Dfk-H6-tnt"/>
                             <constraint firstItem="TbZ-WJ-lPT" firstAttribute="leading" secondItem="hfj-6M-UA3" secondAttribute="leading" constant="4" id="Dmc-tX-Pjm"/>
                             <constraint firstItem="PlA-Le-YCi" firstAttribute="top" secondItem="hfj-6M-UA3" secondAttribute="top" id="GUo-2i-GGh"/>
@@ -418,6 +432,7 @@
                             <constraint firstItem="PlA-Le-YCi" firstAttribute="leading" secondItem="hfj-6M-UA3" secondAttribute="leading" id="Tj1-Gs-0Ve"/>
                             <constraint firstItem="4tx-u5-Vr6" firstAttribute="leading" secondItem="hfj-6M-UA3" secondAttribute="leading" id="WLb-cM-2Ep"/>
                             <constraint firstItem="TbZ-WJ-lPT" firstAttribute="top" secondItem="4wZ-5E-OFT" secondAttribute="bottom" constant="220" id="dof-Dn-Jvs"/>
+                            <constraint firstItem="GcP-j9-5r8" firstAttribute="top" secondItem="4wZ-5E-OFT" secondAttribute="bottom" constant="10" id="iWi-m1-otN"/>
                             <constraint firstItem="cam-De-pGA" firstAttribute="leading" secondItem="hfj-6M-UA3" secondAttribute="leading" constant="8" id="kYd-wP-sJd"/>
                             <constraint firstItem="4tx-u5-Vr6" firstAttribute="top" secondItem="cam-De-pGA" secondAttribute="bottom" constant="2" id="n5d-VZ-pAj"/>
                             <constraint firstAttribute="trailing" secondItem="PlA-Le-YCi" secondAttribute="trailing" id="pqV-ou-qQg"/>
@@ -440,7 +455,9 @@
                         <outlet property="nameOutlet" destination="2RI-Fl-Y0H" id="Fl8-lr-Fk3"/>
                         <outlet property="ratingOutlet" destination="9XN-di-QBT" id="w6k-xc-Sf5"/>
                         <outlet property="synopsisOutlet" destination="daa-jU-hJs" id="IM3-db-8Fa"/>
+                        <outlet property="trailerButtonOutlet" destination="GcP-j9-5r8" id="TSy-hD-xiZ"/>
                         <segue destination="MfN-Ah-Rt6" kind="show" identifier="castDetail" id="eR8-1a-epd"/>
+                        <segue destination="W1g-65-Klh" kind="show" identifier="playTrailer" id="mhF-BE-W72"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DgE-4R-4fy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -597,7 +614,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yb9-u2-gPO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="786.95652173913049" y="167.93478260869566"/>
+            <point key="canvasLocation" x="743" y="168"/>
+        </scene>
+        <!--Series Trailer View Controller-->
+        <scene sceneID="yJn-2X-w4w">
+            <objects>
+                <viewController id="W1g-65-Klh" customClass="SeriesTrailerViewController" customModule="Screen" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jy5-am-fk1"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZVk-Ll-Znl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IG4-ig-h4H">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="BQw-SR-6dr"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qtg-OM-Faf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1435" y="168"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="93t-E0-8hJ">
@@ -625,6 +661,7 @@
     </scenes>
     <resources>
         <image name="icons8-Heart_30" width="30" height="30"/>
+        <image name="icons8_Circled_Play_70" width="70" height="70"/>
         <image name="prof2" width="512" height="512"/>
     </resources>
 </document>

@@ -34,6 +34,8 @@ UICollectionViewDelegate {
     @IBOutlet weak var synopsisOutlet: UILabel!
     @IBOutlet weak var castCollectionViewOutlet: UICollectionView!
     @IBOutlet weak var likeBarButtonOutlet: UIBarButtonItem!
+    @IBOutlet weak var trailerButtonOutlet: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +52,32 @@ UICollectionViewDelegate {
         }
         self.castCollectionViewOutlet.dataSource = self
         self.castCollectionViewOutlet.delegate = self
+        self.configureTrailerButton()
+        print("Series Id: \(series.id)")
+    }
+    
+    func configureTrailerButton() {
+        let buttonImage = UIImage(named: "icons8_Circled_Play_70.png")?.withRenderingMode(.alwaysTemplate)
+        self.trailerButtonOutlet.setImage(buttonImage, for: .normal)
+        self.trailerButtonOutlet.tintColor = UIColor.white
+    }
+    
+    @IBAction func trailerButtonPressed(_ sender: Any) {
+        let BASE_VIDEO_URL = "\(BASE_URL_TV)\(series.id)\(TV_VIDEO_PARAM)\(AUTH_PARAM)\(API_KEY)"
+        Alamofire.request(BASE_VIDEO_URL).responseJSON { response in
+            if let videoArrayDictionary = response.result.value as? [String:Any] {
+                if let videoArray = videoArrayDictionary["results"] as? [[String:Any]] {
+                    for video in videoArray {
+                        if let videoType = video["type"] as? String , videoType == "Trailer" || videoType == "Opening Credits" {
+                            if let trailerId = video["key"] as? String {
+                                self.performSegue(withIdentifier: "playTrailer", sender: trailerId)
+                                break
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
     
     
@@ -124,6 +152,11 @@ UICollectionViewDelegate {
         if let destination = segue.destination as? CastViewController {
             if let cast = sender as? Cast{
                 destination.cast = cast
+            }
+        }
+        if let destination = segue.destination as? SeriesTrailerViewController {
+            if let trailerId = sender as? String {
+                destination.seriesTrailerId = trailerId
             }
         }
     }

@@ -28,6 +28,7 @@
 		17805C941F255F950066E73A /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17805C931F255F950066E73A /* RoundButton.swift */; };
 		17805C961F2565F40066E73A /* SeriesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17805C951F2565F40066E73A /* SeriesCell.swift */; };
 		17805C981F2578EB0066E73A /* RoundCornerImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17805C971F2578EB0066E73A /* RoundCornerImageView.swift */; };
+		17C399211F2902A1007161C6 /* SeriesTrailerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C399201F2902A1007161C6 /* SeriesTrailerViewController.swift */; };
 		1CF40DB9A3550F2E2554E20D /* Pods_ScreenTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 099AA8DE71EA60E86A048832 /* Pods_ScreenTests.framework */; };
 		3B66385C41134BAA4E552993 /* Pods_Screen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB4BD707AB5C312EE3E0DAD9 /* Pods_Screen.framework */; };
 /* End PBXBuildFile section */
@@ -70,6 +71,7 @@
 		17805C931F255F950066E73A /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		17805C951F2565F40066E73A /* SeriesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeriesCell.swift; sourceTree = "<group>"; };
 		17805C971F2578EB0066E73A /* RoundCornerImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundCornerImageView.swift; sourceTree = "<group>"; };
+		17C399201F2902A1007161C6 /* SeriesTrailerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeriesTrailerViewController.swift; sourceTree = "<group>"; };
 		483DEC45625265D879B7DC13 /* Pods-ScreenTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScreenTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ScreenTests/Pods-ScreenTests.release.xcconfig"; sourceTree = "<group>"; };
 		AB4BD707AB5C312EE3E0DAD9 /* Pods_Screen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Screen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B40CB699875DEF35CDD452FF /* Pods-Screen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Screen.release.xcconfig"; path = "Pods/Target Support Files/Pods-Screen/Pods-Screen.release.xcconfig"; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				17805C651F253B8A0066E73A /* ScreenViewController.swift */,
 				175891FC1F263AB600A42D61 /* DetailViewController.swift */,
 				177D1F251F280D8200F98422 /* CastViewController.swift */,
+				17C399201F2902A1007161C6 /* SeriesTrailerViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -432,6 +435,7 @@
 				17805C8B1F253CA80066E73A /* MaterialView.swift in Sources */,
 				17805C981F2578EB0066E73A /* RoundCornerImageView.swift in Sources */,
 				17805C921F253F7E0066E73A /* Genre.swift in Sources */,
+				17C399211F2902A1007161C6 /* SeriesTrailerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
